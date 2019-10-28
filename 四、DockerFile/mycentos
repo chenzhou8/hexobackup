@@ -1,0 +1,32 @@
+# 从标准centos构建
+FROM centos
+
+# 定义作者信息
+MAINTAINER tim<15291418231@163.com>
+
+# 定义一个变量
+ENV mypath /tmp
+
+# 设置登录后的落脚点
+WORKDIR $mypath
+
+# 安装vim和net-tools工具
+RUN yum -y install vim
+RUN yum -y install net-tools
+
+EXPOSE 80
+
+CMD echo $mypath
+CMD echo "success----------ok"
+CMD /bin/bash
+
+
+
+=======================================================
+
+FROM centos
+
+RUN yum install -y curl
+
+CMD ["curl", "-s", "http://ip.cn"]
+
